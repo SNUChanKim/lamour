@@ -1,0 +1,31 @@
+# MuJoCo Hopper Environment Documentation
+
+## Environment Overview
+The hopper is a two-dimensional one-legged figure consisting of four main body parts - the torso at the top, the thigh in the middle, the leg at the bottom, and a single foot on which the entire body rests.
+The hopper is capable of performing various locomotion tasks by applying torque to the three hinges that connect the four body parts.
+
+## Technical Specifications
+
+### State Space
+The environment state is represented as a 1-dimensional NumPy array of shape `(11,)`, containing comprehensive information about the hopper's current configuration:
+
+#### 1. Position and Angle
+- `state[0:2]`: Position (state[0]) and angle (state[1]) of the torso
+  - `state[0]`: z-coordinate of the torso (height of hopper) in meters (1.25 when spawned).  
+  - `state[1]`: angle of the torso in radians (0 when spawned).  
+
+#### 2. Joint Angles
+- `state[2:5]`: Angles of joints
+  - `state[2]`: angle of the thigh joint in radians.  
+  - `state[3]`: angle of the leg joint in radians.  
+  - `state[4]`: angle of the foot joint in radians. 
+
+### Action Space
+The action space consists of a 1-dimensional NumPy array of shape `(3,)`, controlling the torques applied to each of the hopper's actuated joints.
+
+**Range**: All actions are bounded between [-1, 1]
+
+**Control mapping**:
+- `action[0]`: Torque applied on the thigh rotor.  
+- `action[1]`: Torque applied on the leg rotor.  
+- `action[2]`: Torque applied on the foot rotor. 

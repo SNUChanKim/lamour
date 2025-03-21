@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="partnet_5d60590d192c52553a23b8cb1a985a11">
+ <link name="base"/>
+ <link name="link_0">
+  <visual name="caster_stem-121">
+   <origin xyz="0.4707100043177609 0 0.09939788493514051"/>
+   <geometry>
+    <mesh filename="textured_objs/original-17.obj"/>
+   </geometry>
+  </visual>
+  <collision>
+   <geometry>
+    <mesh filename="cvx_objs/link_0.obj"/>
+   </geometry>
+  </collision>
+ </link>
+ <joint name="joint_0" type="continuous">
+  <origin xyz="-0.4707100043177609 0 -0.09939788493514051"/>
+  <axis xyz="0 1 0"/>
+  <child link="link_0"/>
+  <parent link="link_11"/>
+ </joint>
+ <link name="link_1">
+  <visual name="wheel-122">
+   <origin xyz="0.4381924251701442 0.783778 0"/>
+   <geometry>
+    <mesh filename="textured_objs/original-16.obj"/>
+   </geometry>
+  </visual>
+  <collision>
+   <geometry>
+    <mesh filename="cvx_objs/link_1.obj"/>
+   </geometry>
+  </collision>
+ </link>
+ <joint name="joint_1" type="continuous">
+  <origin xyz="0.032517579147616715 -0.783778 0.09939788493514051"/>
+  <axis xyz="0 0 1"/>
+  <child link="link_1"/>
+  <parent link="link_0"/>
+ </joint>
+ <link name="link_2">
+  <visual name="caster_stem-119">
+   <origin xyz="0.013175996994972107 0 0.43086305685043264"/>
+   <geometry>
+    <mesh filename="textured_objs/original-14.obj"/>
+   </geometry>
+  </visual>
+  <collision>
+   <geometry>
+    <mesh filename="cvx_objs/link_2.obj"/>
+   </geometry>
+  </collision>
+ </link>
+ <joint name="joint_2" type="continuous">
+  <origin xyz="-0.013175996994972107 0 -0.43086305685043264"/>
+  <axis xyz="0 1 0"/>
+  <child link="link_2"/>
+  <parent link="link_11"/>
+ </joint>
+ <link name="link_3">
+  <visual name="wheel-120">
+   <origin xyz="-0.01919977780095489 0.783778 0"/>
+   <geometry>
+    <mesh filename="textured_objs/original-13.obj"/>
+   </geometry>
+  </visual>
+  <collision>
+   <geometry>
+    <mesh filename="cvx_objs/link_3.obj"/>
+   </geometry>
+  </collision>
+ </link>
+ <joint name="joint_3" type="continuous">
+  <origin xyz="0.032375774795927 -0.783778 0.43086305685043264"/>
+  <axis xyz="0 0 1"/>
+  <child link="link_3"/>
+  <parent link="link_2"/>
+ </joint>
+ <link name="link_4">
+  <visual name="caster_stem-117">
+   <origin xyz="-0.44573907285928754 0 0.09923614031076429"/>
+   <geometry>
+    <mesh filename="textured_objs/original-5.obj"/>
+   </geometry>
+  </visual>
+  <collision>
+   <geometry>
+    <mesh filename="cvx_objs/link_4.obj"/>
+   </geometry>
+  </collision>
+ </link>
+ <joint name="joint_4" type="continuous">
+  <origin xyz="0.44573907285928754 0 -0.09923614031076429"/>
+  <axis xyz="0 1 0"/>
+  <child link="link_4"/>
+  <parent link="link_11"/>
+ </joint>
+ <link name="link_5">
+  <visual name="wheel-118">
+   <origin xyz="-0.476592 0.7837780000000001 0"/>
+   <geometry>
+    <mesh filename="textured_objs/original-4.obj"/>
+   </geometry>
+  </visual>
+  <collision>
+   <geometry>
+    <mesh filename="cvx_objs/link_5.obj"/>
+   </geometry>
+  </collision>
+ </link>
+ <joint name="joint_5" type="continuous">
+  <origin xyz="0.03085292714071247 -0.7837780000000001 0.09923614031076429"/>
+  <axis xyz="0 0 -1"/>
+  <child link="link_5"/>
+  <parent link="link_4"/>
+ </joint>
+ <link name="link_6">
+  <visual name="caster_stem-115">
+   <origin xyz="-0.26959100386500306 0 -0.4379544916123159"/>
+   <geometry>
+    <mesh filename="textured_objs/original-8.obj"/>
+   </geometry>
+  </visual>
+  <collision>
+   <geometry>
+    <mesh filename="cvx_objs/link_6.obj"/>
+   </geometry>
+  </collision>
+ </link>
+ <joint name="joint_6" type="continuous">
+  <origin xyz="0.26959100386500306 0 0.4379544916123159"/>
+  <axis xyz="0 1 0"/>
+  <child link="link_6"/>
+  <parent link="link_11"/>
+ </joint>
+ <link name="link_7">
+  <visual name="wheel-116">
+   <origin xyz="-0.3018837778009549 0.783778 0"/>
+   <geometry>
+    <mesh filename="textured_objs/original-7.obj"/>
+   </geometry>
+  </visual>
+  <collision>
+   <geometry>
+    <mesh filename="cvx_objs/link_7.obj"/>
+   </geometry>
+  </collision>
+ </link>
+ <joint name="joint_7" type="continuous">
+  <origin xyz="0.03229277393595181 -0.783778 -0.4379544916123159"/>
+  <axis xyz="0 0 1"/>
+  <child link="link_7"/>
+  <parent link="link_6"/>
+ </joint>
+ <link name="link_8">
+  <visual name="caster_stem-113">
+   <origin xyz="0.29466751948237385 0 -0.4368965162873268"/>
+   <geometry>
+    <mesh filename="textured_objs/original-11.obj"/>
+   </geometry>
+  </visual>
+  <collision>
+   <geometry>
+    <mesh filename="cvx_objs/link_8.obj"/>
+   </geometry>
+  </collision>
+ </link>
+ <joint name="joint_8" type="continuous">
+  <origin xyz="-0.29466751948237385 0 0.4368965162873268"/>
+  <axis xyz="0 1 0"/>
+  <child link="link_8"/>
+  <parent link="link_11"/>
+ </joint>
+ <link name="link_9">
+  <visual name="wheel-114">
+   <origin xyz="0.2634842221990451 0.783778 0"/>
+   <geometry>
+    <mesh filename="textured_objs/original-10.obj"/>
+   </geometry>
+  </visual>
+  <collision>
+   <geometry>
+    <mesh filename="cvx_objs/link_9.obj"/>
+   </geometry>
+  </collision>
+ </link>
+ <joint name="joint_9" type="continuous">
+  <origin xyz="0.031183297283328748 -0.783778 -0.4368965162873268"/>
+  <axis xyz="0 0 -1"/>
+  <child link="link_9"/>
+  <parent link="link_8"/>
+ </joint>
+ <link name="link_10">
+  <visual name="back_frame_horizontal_bar-91">
+   <origin xyz="0.012739177155780167 0 -0.04959820927691659"/>
+   <geometry>
+    <mesh filename="textured_objs/new-11.obj"/>
+   </geometry>
+  </visual>
+  <visual name="back_connector-81">
+   <origin xyz="0.012739177155780167 0 -0.04959820927691659"/>
+   <geometry>
+    <mesh filename="textured_objs/original-40.obj"/>
+   </geometry>
+  </visual>
+  <visual name="back_connector-82">
+   <origin xyz="0.012739177155780167 0 -0.04959820927691659"/>
+   <geometry>
+    <mesh filename="textured_objs/original-29.obj"/>
+   </geometry>
+  </visual>
+  <visual name="back_soft_surface-92">
+   <origin xyz="0.012739177155780167 0 -0.04959820927691659"/>
+   <geometry>
+    <mesh filename="textured_objs/original-38.obj"/>
+   </geometry>
+  </visual>
+  <visual name="back_frame_horizontal_bar-90">
+   <origin xyz="0.012739177155780167 0 -0.04959820927691659"/>
+   <geometry>
+    <mesh filename="textured_objs/new-12.obj"/>
+   </geometry>
+  </visual>
+  <visual name="back_frame_vertical_bar-89">
+   <origin xyz="0.012739177155780167 0 -0.04959820927691659"/>
+   <geometry>
+    <mesh filename="textured_objs/new-16.obj"/>
+   </geometry>
+  </visual>
+  <visual name="back_frame_vertical_bar-88">
+   <origin xyz="0.012739177155780167 0 -0.04959820927691659"/>
+   <geometry>
+    <mesh filename="textured_objs/new-18.obj"/>
+   </geometry>
+  </visual>
+  <visual name="back_connector-134">
+   <origin xyz="0.012739177155780167 0 -0.04959820927691659"/>
+   <geometry>
+    <mesh filename="textured_objs/new-15.obj"/>
+   </geometry>
+  </visual>
+  <visual name="back_connector-135">
+   <origin xyz="0.012739177155780167 0 -0.04959820927691659"/>
+   <geometry>
+    <mesh filename="textured_objs/new-17.obj"/>
+   </geometry>
+  </visual>
+  <visual name="armrest_hard_surface-74">
+   <origin xyz="0.012739177155780167 0 -0.04959820927691659"/>
+   <geometry>
+    <mesh filename="textured_objs/original-35.obj"/>
+   </geometry>
+  </visual>
+  <visual name="arm_vertical_bar-75">
+   <origin xyz="0.012739177155780167 0 -0.04959820927691659"/>
+   <geometry>
+    <mesh filename="textured_objs/original-34.obj"/>
+   </geometry>
+  </visual>
+  <visual name="arm_connector-76">
+   <origin xyz="0.012739177155780167 0 -0.04959820927691659"/>
+   <geometry>
+    <mesh filename="textured_objs/original-32.obj"/>
+   </geometry>
+  </visual>
+  <visual name="arm_vertical_bar-61">
+   <origin xyz="0.012739177155780167 0 -0.04959820927691659"/>
+   <geometry>
+    <mesh filename="textured_objs/original-26.obj"/>
+   </geometry>
+  </visual>
+  <visual name="arm_connector-62">
+   <origin xyz="0.012739177155780167 0 -0.04959820927691659"/>
+   <geometry>
+    <mesh filename="textured_objs/original-24.obj"/>
+   </geometry>
+  </visual>
+  <visual name="armrest_hard_surface-73">
+   <origin xyz="0.012739177155780167 0 -0.04959820927691659"/>
+   <geometry>
+    <mesh filename="textured_objs/original-27.obj"/>
+   </geometry>
+  </visual>
+  <visual name="seat_soft_surface-72">
+   <origin xyz="0.012739177155780167 0 -0.04959820927691659"/>
+   <geometry>
+    <mesh filename="textured_objs/original-22.obj"/>
+   </geometry>
+  </visual>
+  <visual name="seat_frame_vertical_bar-67">
+   <origin xyz="0.012739177155780167 0 -0.04959820927691659"/>
+   <geometry>
+    <mesh filename="textured_objs/original-30.obj"/>
+   </geometry>
+  </visual>
+  <visual name="seat_frame_vertical_bar-66">
+   <origin xyz="0.012739177155780167 0 -0.04959820927691659"/>
+   <geometry>
+    <mesh filename="textured_objs/original-41.obj"/>
+   </geometry>
+  </visual>
+  <visual name="seat_support-133">
+   <origin xyz="0.012739177155780167 0 -0.04959820927691659"/>
+   <geometry>
+    <mesh filename="textured_objs/original-21.obj"/>
+   </geometry>
+  </visual>
+  <visual name="central_support-131">
+   <origin xyz="0.012739177155780167 0 -0.04959820927691659"/>
+   <geometry>
+    <mesh filename="textured_objs/new-5.obj"/>
+   </geometry>
+  </visual>
+  <visual name="seat_connector-132">
+   <origin xyz="0.012739177155780167 0 -0.04959820927691659"/>
+   <geometry>
+    <mesh filename="textured_objs/original-19.obj"/>
+   </geometry>
+  </visual>
+  <collision>
+   <geometry>
+    <mesh filename="cvx_objs/link_10.obj"/>
+   </geometry>
+  </collision>
+ </link>
+ <joint name="joint_10" type="continuous">
+  <origin xyz="0.0 0 0.0"/>
+  <axis xyz="0 -1 0"/>
+  <child link="link_10"/>
+  <parent link="link_10_helper"/>
+ </joint>
+ <link name="link_11">
+  <visual name="central_support-128">
+   <origin xyz="0 0 0"/>
+   <geometry>
+    <mesh filename="textured_objs/new-6.obj"/>
+   </geometry>
+  </visual>
+  <visual name="central_support-129">
+   <origin xyz="0 0 0"/>
+   <geometry>
+    <mesh filename="textured_objs/original-45.obj"/>
+   </geometry>
+  </visual>
+  <visual name="central_support-130">
+   <origin xyz="0 0 0"/>
+   <geometry>
+    <mesh filename="textured_objs/original-47.obj"/>
+   </geometry>
+  </visual>
+  <visual name="footrest_bar-123">
+   <origin xyz="0 0 0"/>
+   <geometry>
+    <mesh filename="textured_objs/new-10.obj"/>
+   </geometry>
+  </visual>
+  <visual name="footrest_bar-124">
+   <origin xyz="0 0 0"/>
+   <geometry>
+    <mesh filename="textured_objs/new-9.obj"/>
+   </geometry>
+  </visual>
+  <visual name="footrest_bar-125">
+   <origin xyz="0 0 0"/>
+   <geometry>
+    <mesh filename="textured_objs/new-8.obj"/>
+   </geometry>
+  </visual>
+  <visual name="footrest_bar-126">
+   <origin xyz="0 0 0"/>
+   <geometry>
+    <mesh filename="textured_objs/new-7.obj"/>
+   </geometry>
+  </visual>
+  <visual name="footrest_circular-127">
+   <origin xyz="0 0 0"/>
+   <geometry>
+    <mesh filename="textured_objs/original-43.obj"/>
+   </geometry>
+  </visual>
+  <visual name="leg-100">
+   <origin xyz="0 0 0"/>
+   <geometry>
+    <mesh filename="textured_objs/new-2.obj"/>
+   </geometry>
+  </visual>
+  <visual name="leg-101">
+   <origin xyz="0 0 0"/>
+   <geometry>
+    <mesh filename="textured_objs/new-3.obj"/>
+   </geometry>
+  </visual>
+  <visual name="leg-102">
+   <origin xyz="0 0 0"/>
+   <geometry>
+    <mesh filename="textured_objs/new-4.obj"/>
+   </geometry>
+  </visual>
+  <visual name="leg-103">
+   <origin xyz="0 0 0"/>
+   <geometry>
+    <mesh filename="textured_objs/new-0.obj"/>
+   </geometry>
+  </visual>
+  <visual name="leg-104">
+   <origin xyz="0 0 0"/>
+   <geometry>
+    <mesh filename="textured_objs/new-1.obj"/>
+   </geometry>
+  </visual>
+  <collision>
+   <geometry>
+    <mesh filename="cvx_objs/link_11.obj"/>
+   </geometry>
+  </collision>
+ </link>
+ <joint name="joint_11" type="fixed">
+  <origin rpy="1.570796326794897 0 -1.570796326794897" xyz="0 0 0"/>
+  <child link="link_11"/>
+  <parent link="base"/>
+ </joint>
+ <link name="link_10_helper"/>
+ <joint name="joint_12" type="prismatic">
+  <origin xyz="-0.012739177155780167 0 0.04959820927691659"/>
+  <axis xyz="0 -1 0"/>
+  <child link="link_10_helper"/>
+  <parent link="link_11"/>
+  <limit lower="0" upper="0.03600000000000003"/>
+ </joint>
+</robot>

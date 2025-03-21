@@ -1,0 +1,38 @@
+# MuJoCo HalfCheetah Environment Documentation
+
+## Environment Overview
+The HalfCheetah is a 2-dimensional robot consisting of 9 body parts and 8 joints connecting them (including two paws).
+The cheetah’s head is fixed to its torso. 
+The HalfCheetah is capable of performing various locomotion tasks by applying torque to 6 joints over the front and back thighs (which connect to the torso), the shins (which connect to the thighs), and the feet (which connect to the shins).
+
+## Technical Specifications
+
+### State Space
+The environment state is represented as a 1-dimensional NumPy array of shape `(17,)`, containing comprehensive information about the HalfCheetah's current configuration:
+
+#### 1. Position and Angle
+- `state[0:2]`: Position (state[0]) and angle (state[1]) of head fixed to its torso
+  - `state[0]`: z-coordinate of the head in meters (0 when spawned).  
+  - `state[1]`: angle of the head in radians (0 when spawned).  
+
+#### 2. Joint Angles
+- `state[2:8]`: Angles of joint in back leg (state[2:5]) and front leg(state[5:8])
+  - `state[2]`: angle of the back thigh in radians.  
+  - `state[3]`: angle of the back shin in radians.  
+  - `state[4]`: angle of the back foot in radians. 
+  - `state[5]`: angle of the front thigh in radians.  
+  - `state[6]`: angle of the front shin in radians.  
+  - `state[7]`: angle of the front foot in radians.  
+
+### Action Space
+The action space consists of a 1-dimensional NumPy array of shape `(6,)`, controlling the torques applied to each of the HalfCheetah's actuated joints.
+
+**Range**: All actions are bounded between [-1, 1]
+
+**Control mapping**:
+- `action[0]`: Torque applied on the back thigh rotor.  
+- `action[1]`: Torque applied on the back shin rotor.  
+- `action[2]`: Torque applied on the back foot rotor.  
+- `action[3]`: Torque applied on the front thigh rotor.  
+- `action[4]`: Torque applied on the front shin rotor.  
+- `action[5]`: Torque applied on the front foot rotor.  

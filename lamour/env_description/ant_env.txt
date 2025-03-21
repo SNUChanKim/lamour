@@ -1,0 +1,44 @@
+# MuJoCo Ant Environment Documentation
+
+## Environment Overview
+The ant is a 3D quadruped robot consisting of a torso (free rotational body) with four legs attached to it, where each leg has two body parts. 
+The ant is capable of performing various locomotion tasks by applying torque to the eight hinges connecting the two body parts of each leg and the torso (nine body parts and eight hinges).
+
+## Technical Specifications
+
+### State Space
+The environment state is represented as a 1-dimensional NumPy array of shape `(111,)`, containing comprehensive information about the ant's current configuration:
+
+#### 1. Position and Orientation
+- `state[0:5]`: Core position (state[0]) and orientation (state[1:5]: quaternion) values
+  - `state[0]`: z-coordinate of the torso (center of mass) in meters (0.55 when spawned).  
+  - `state[1]`: w-orientation of the torso in radians.  
+  - `state[2]`: x-orientation of the torso in radians.  
+  - `state[3]`: y-orientation of the torso in radians.  
+  - `state[4]`: z-orientation of the torso in radians.  
+
+#### 2. Joint Angles
+- `state[5:13]`: Joint angle information in radians
+  - `state[5]`: angle between torso and first link on front left in radians.  
+  - `state[6]`: angle between the two links on the front left in radians.  
+  - `state[7]`: angle between torso and first link on front right in radians.  
+  - `state[8]`: angle between the two links on the front right in radians.  
+  - `state[9]`: angle between torso and first link on back left in radians.  
+  - `state[10]`: angle between the two links on the back left in radians.  
+  - `state[11]`: angle between torso and first link on back right in radians. 
+  - `state[12]`: angle between the two links on the back right in radians.  
+
+### Action Space
+The action space consists of a 1-dimensional NumPy array of shape `(8,)`, controlling the torques applied to each of the ant's actuated joints.
+
+**Range**: All actions are bounded between [-1, 1]
+
+**Control mapping**:
+- `action[0]`: Torque applied on the rotor between the torso and back right hip.  
+- `action[1]`: Torque applied on the rotor between the back right two links.  
+- `action[2]`: Torque applied on the rotor between the torso and front left hip.  
+- `action[3]`: Torque applied on the rotor between the front left two links.  
+- `action[4]`: Torque applied on the rotor between the torso and front right hip.  
+- `action[5]`: Torque applied on the rotor between the front right two links.  
+- `action[6]`: Torque applied on the rotor between the torso and back left hip.  
+- `action[7]`: Torque applied on the rotor between the back left two links.

@@ -1,0 +1,58 @@
+Implement staged rewards for the recovery behavior using a nested if-else structure.
+
+Here is an example of how to generate code for staged reward:
+
+Recovery behavior: Lift a cube from a table to a specified height (0.5 meters).
+
+Corresponding reward code:
+```python
+import numpy as np
+from typing import Optional
+
+def calculate_reward(state: np.ndarray, action: np.ndarray) -> float:
+    # Initialize base reward
+    reward = 0.0
+    
+    # Extract state components
+    dist_to_cube = state[0]  # Distance to cube
+    gripper_force = state[1]  # Force applied by gripper
+    cube_height = state[2]  # Cube's current height
+    cube_tilt = state[3]  # Cube's tilt angle
+    cube_velocity = state[4]  # Cube's velocity
+    
+    target_height = 0.5  # Desired cube height
+
+    # Logarithmic distance reward (encourages closer approach)
+    log_dist_to_cube = np.log(dist_to_cube + 1e-5)
+    reward += -dist_to_cube - np.clip(log_dist_to_cube, -10, 0)
+
+    # Height-based reward (minimizing deviation from target)
+    height_diff = np.abs(cube_height - target_height)
+    reward += -height_diff
+
+    # Action penalty (encourages smooth control)
+    action_norm = np.linalg.norm(action)
+    reward -= action_norm * 1e-6
+
+    # Stage-based reward
+    stage_reward = -10
+
+    # Stage 1: Approach cube
+    if dist_to_cube < 0.1:
+        stage_reward += 2  # Reward for reaching the cube
+    
+        # Stage 2: Establish grip
+        if gripper_force > 0.1:
+            stage_reward += 4
+            reward += 2.0 * gripper_force  # Extra reward for grip strength
+         
+            # Stage 3: Lift cube
+            if height_diff < 0.1:
+                stage_reward += 4
+                reward -= cube_tilt  # Penalize excessive tilting
+    
+    # Add stage-based reward to final reward
+    reward += stage_reward
+
+    return reward
+```

@@ -1,0 +1,34 @@
+# ManiSkill2 PushChair Environment Documentation
+
+## Environment Overview
+The environment features a mobile dual-arm Panda robot tasked with manipulating a chair. 
+The robot consists of a mobile based that can move in the horizontal plane, two 7-DoF Panda arms, and two grippers (one per arm).
+
+## Technical Specifications
+
+### State Space
+The environment state is represented as a 1-dimensional NumPy array of shape `(5,)`, providing critical information about the robot and the chair.:
+
+#### 1. Distance Measurements
+- `state[0]`: mean distance between robot's end-effectors and chair (meters)
+- `state[1]`: distance from chair to target position (meters)
+
+#### 2. Chair Configuration
+- `state[2]`: the tilt angle of the chair in radians.
+- `state[3]`: velocity of the chair (m/s).
+- `state[4]`: angular velocity of the chair in radians (rad/s).
+
+### Action Space
+The action space consists of a 1-dimensional NumPy array of shape `(20,)`, controlling the velocities of the mobile base and the desired velocity of the actuated joints of the dual-arm.
+
+**Range**: All actions are bounded between [-1, 1]
+
+**Control mapping**:
+- `action[0]`: x-coordinate velocity of the mobile base. 
+- `action[1]`: x-coordinate velocity of the mobile base. 
+- `action[2]`: z-coordinate angular velocity of the mobile base.
+- `action[3]`: z-coordinate velocity of the mobile base.  
+- `action[4:11]`: Desired velocities for the 7 joints of the left arm.  
+- `action[11:18]`: Desired velocities for the 7 joints of the right arm.
+- `action[18]`: Desired velocity for the left gripper's opening/closing. 
+- `action[19]`: Desired velocity for the right gripper's opening/closing.   
