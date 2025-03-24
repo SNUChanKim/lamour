@@ -1,0 +1,5 @@
+log/
+trained_models/
+imgui.ini
+*__pycache__*
+lamour/outputs/*

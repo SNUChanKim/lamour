@@ -1,0 +1,72 @@
+# MuJoCo Humanoid Environment Documentation
+
+## Environment Overview
+The humanoid is the 3D bipedal robot designed to simulate a human.
+It has a torso (abdomen) with a pair of legs and arms, and a pair of tendons connecting the hips to the knees.
+The legs each consist of three body parts (thigh, shin, foot), and the arms consist of two body parts (upper arm, forearm).
+The humanoid is capable of performing various locomotion tasks by applying torque to the hinges that connect its body parts.
+
+## Technical Specifications
+
+### State Space
+The environment state is represented as a 1-dimensional NumPy array of shape `(67,)`, containing comprehensive information about the humanoid's current configuration:
+
+#### 1. Joint Angles
+- `state[0:21]`: Joint angle information in radians
+  - `state[0]`: z-angle of the abdomen (in lower_waist) in radians.  
+  - `state[1]`: y-angle of the abdomen (in lower_waist) in radians.  
+  - `state[2]`: x-angle of the abdomen (in pelvis) in radians.  
+  - `state[3]`: x-coordinate of angle between pelvis and right hip (in right_thigh) in radians.  
+  - `state[4]`: z-coordinate of angle between pelvis and right hip (in right_thigh) in radians.  
+  - `state[5]`: y-coordinate of angle between pelvis and right hip (in right_thigh) in radians.  
+  - `state[6]`: angle between right hip and the right shin (in right_knee) in radians. 
+  - `state[7]`: x-coordinate of right ankle in radians.  
+  - `state[8]`: y-coordinate of right ankle in radians.  
+  - `state[9]`: x-coordinate of angle between pelvis and left hip (in left_thigh) in radians.  
+  - `state[10]`: z-coordinate of angle between pelvis and left hip (in left_thigh) in radians.  
+  - `state[11]`: y-coordinate of angle between pelvis and left hip (in left_thigh) in radians.  
+  - `state[12]`: angle between left hip and the left shin (in left_knee) in radians.  
+  - `state[13]`: x-coordinate of left ankle in radians.  
+  - `state[14]`: y-coordinate of left ankle in radians.  
+  - `state[15]`: coordinate-1 (multi-axis) angle between torso and right arm (in right_upper_arm) in radians.  
+  - `state[16]`: coordinate-2 (multi-axis) angle between torso and right arm (in right_upper_arm) in radians.  
+  - `state[17]`: angle between right upper arm and right_lower_arm in radians.  
+  - `state[18]`: coordinate-1 (multi-axis) angle between torso and left arm (in left_upper_arm) in radians.  
+  - `state[19]`: coordinate-2 (multi-axis) angle between torso and left arm (in left_upper_arm) in radians.  
+  - `state[20]`: angle between left upper arm and left_lower_arm in radians. 
+
+#### 2. Head Positions
+  - `state[21]`: z-coordinate of the head in meters (1.6 when standing).  
+
+#### 3. Orientation of Torso
+  - `state[34]`: Alignment of the torso to x-axis (0~1).
+  - `state[35]`: Alignment of the torso to y-axis (0~1).
+  - `state[36]`: Alignment of the torso to z-axis (0~1).
+
+### Action Space
+The action space consists of a 1-dimensional NumPy array of shape `(17,)`, controlling the torques applied to each of the humanoid's actuated joints.
+
+**Range**: All actions are bounded between [-1.0, 1.0]
+
+**Control mapping**:
+- `action[0]`: Torque applied on the hinge in the y-coordinate of the abdomen.
+- `action[1]`: Torque applied on the hinge in the z-coordinate of the abdomen. 
+- `action[2]`: Torque applied on the hinge in the x-coordinate of the abdomen.
+- `action[3]`: Torque applied on the rotor between torso/abdomen and the right hip (x-coordinate).
+- `action[4]`: Torque applied on the rotor between torso/abdomen and the right hip (z-coordinate).
+- `action[5]`: Torque applied on the rotor between torso/abdomen and the right hip (y-coordinate).
+- `action[6]`: Torque applied on the rotor between the right hip/thigh and the right shin.
+- `action[7]`: Torque applied on the right ankle (x-coordinate).
+- `action[8]`: Torque applied on the right ankle (y-coordinate).
+- `action[9]`: Torque applied on the rotor between torso/abdomen and the left hip (x-coordinate).
+- `action[10]`: Torque applied on the rotor between torso/abdomen and the left hip (z-coordinate).
+- `action[11]`: Torque applied on the rotor between torso/abdomen and the left hip (y-coordinate).
+- `action[12]`: Torque applied on the rotor between the left hip/thigh and the left shin.
+- `action[13]`: Torque applied on the left ankle (x-coordinate).
+- `action[14]`: Torque applied on the left ankle (y-coordinate).
+- `action[15]`: Torque applied on the rotor between the torso and right upper arm (coordinate -1).
+- `action[16]`: Torque applied on the rotor between the torso and right upper arm (coordinate -2).
+- `action[17]`: Torque applied on the rotor between the right upper arm and right lower arm.
+- `action[18]`: Torque applied on the rotor between the torso and left upper arm (coordinate -1).
+- `action[19]`: Torque applied on the rotor between the torso and left upper arm (coordinate -2).
+- `action[20]`: Torque applied on the rotor between the left upper arm and left lower arm.

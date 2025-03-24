@@ -1,0 +1,17 @@
+Identify the specific physical behavior that an agent should execute to recover from an out-of-distribution (OOD) state and return to a state where it can effectively perform its original task.
+
+The original task and the agent's OOD state are defined as follows:
+- Original Task Description: {original_task}  
+- OOD State Description in {env_name}: {ood_description}  
+
+Based on the descriptions of the OOD state and the original task, determine the single recovery behavior by following these steps:
+1. Identify the state in which the agent can successfully perform the original task.
+2. Determine the single specific behavior required to transition the agent from the OOD state to the state where it can successfully perform the original task.
+
+Avoid including unnecessary details that do not directly contribute to the recovery process.
+
+Follow these guidelines when formulating the recovery behavior:
+1. Do not reference the original task directly in the recovery behavior.
+2. Provide a single, clear, and concise sentence that describes the single recovery behavior the agent should execute.
+   
+The output format should be: [A single, concise sentence explaining the single recovery behavior]

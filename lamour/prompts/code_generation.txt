@@ -1,0 +1,76 @@
+Generate Python code for two functions:
+1. is_recovered(state): An evaluation function that checks whether the agent is in a state where it can successfully perform the original task.
+2. calculate_reward(state, action): A reward function that evaluates the recovery behavior of the agent in {env_name} based on the given state and action.
+Ensure the code is clear, concise, and suitable for integration into the RL agent's framework.
+
+Recovery behavior refers to the actions taken by an agent to transition from an out-of-distribution (OOD) state back to a state where it can effectively perform its original task.
+
+The agent's state, action information, current OOD state, and recovery behavior are described as follows:
+1. Description of Agent's State and Action: {environment_description}
+2. Description of Recovery Behavior: {recovery_behavior}
+
+The format of the evaluation function (is_recovered(state)) is defined as follows:
+
+```
+def is_recovered(state: np.ndarray) -> int:
+    """
+    Verify if agent has recovered to state where it can perform the original task.
+    
+    Args:
+        state (np.ndarray): Environment state vector
+        
+    Returns:
+        int: 1 if recovered, 0 if still recovering
+    """
+```
+
+Follow these guidelines when writing the evaluation function:  
+1. Define clear criteria for evaluating the success of the specified recovery behavior.
+2. **Guarantee that the criteria include only the most essential state components necessary to evaluate the specified recovery behavior, avoiding any extraneous velocity-based metrics or non-essential variables**.
+3. Guarantee that the criteria are not too strict to avoid hindering the recovery process.
+4. Return 1 if the state satisfies the criteria, and 0 otherwise.  
+5. If quaternions are used in the function, convert them to Euclidean angles and used them instead of quaternions for better interpretability.
+
+
+The format of the reward function (calculate_reward(state, action)) is defined as follows:
+
+```
+def calculate_reward(state: np.ndarray, action: np.ndarray) -> float:
+    """
+    Compute the reward for recovery behavior.
+    
+    Args:
+        state (np.ndarray): Agent's state vector
+        action (np.ndarray): Agent's action vector
+        
+    Returns:
+        float: Reward value
+    """
+```
+
+Follow these guidelines when designing the reward function:  
+1. Focus on the actions specified in the recovery behavior.
+2. Use the same criteria defined in the evaluation function (is_recovered(state)) to determine whether the recovery behavior has been achieved.
+3. **Gradually increase the reward as the state approaches the defined criteria and decrease it as the state moves further away. Carefully consider the direction of approach.**
+4. **Guarantee the code strictly aligns with the provided description of the recovery behavior; avoid implementing unrelated functionality.**  
+5. Guarantee that the recovery reward is always a negative value.
+6. Penalize large actions to promote efficiency and minimize unnecessary effort during recovery. Use a coefficient to scale the penalty appropriately, accounting for the dimensionality of the action space.
+7. If quaternions are used in the function, convert them to Euclidean angles and used them instead of quaternions for better interpretability.
+
+{example}
+
+Both functions should adhere to the following coding guidelines:
+- Implement using pure Python and NumPy.
+- Include type hints for all functions.
+- Provide clear and comprehensive docstrings with Args and Returns sections.
+- Follow PEP 8 coding standards.
+- Prefer vectorized operations for efficiency.
+- Handle edge cases, such as NaN or infinity in inputs.
+- Ensure functions have no side effects and do not modify inputs.
+
+The response should follow these guidelines:
+- Provide only Python code without any additional explanations.
+- Do not include any markdown symbols, such as ``` or ```python.
+- Implement any necessary helper functions for calculations.
+- Use clear and descriptive variable names for readability.
+- Add inline comments to explain any complex or non-obvious logic.

@@ -1,0 +1,9 @@
+The input image illustrates an out-of-distribution scenario involving a reinforcement learning agent trained in {env_name}.
+
+Your task is to analyze and describe the robot's (agent's) state in the image, focusing specifically on its position, orientation, actions, and any observable anomalies or deviations from expected behavior.
+
+If other objects are present in the image, provide concise descriptions of their states, either in relation to the robot or independently. Do not mention the absence of additional objects if none are present.
+
+Disregard the background completely.
+
+Provide your response as concise, standalone sentences: one describing the robot in {env_name} and one for each additional object (if present).

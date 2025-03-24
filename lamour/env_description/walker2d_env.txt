@@ -1,0 +1,37 @@
+# MuJoCo Walker2D Environment Documentation
+
+## Environment Overview
+The walker is a two-dimensional bipedal robot consisting of seven main body parts - a single torso at the top (with the two legs splitting after the torso), two thighs in the middle below the torso, two legs below the thighs, and two feet attached to the legs on which the entire body rests.
+The walker is capable of performing various locomotion tasks by applying torque to the six hinges connecting the seven body parts.
+
+## Technical Specifications
+
+### State Space
+The environment state is represented as a 1-dimensional NumPy array of shape `(17,)`, containing comprehensive information about the walker's current configuration:
+
+#### 1. Position and Angle
+- `state[0:2]`: Position (state[0]) and angle (state[1]) of the torso
+  - `state[0]`: z-coordinate of the torso (height of Walker2d) in meters (1.25 when spawned).  
+  - `state[1]`: angle of the torso in radians (0 when spawned).  
+
+#### 2. Joint Angles
+- `state[2:8]`: Angles of joints
+  - `state[2]`: angle of the right thigh joint in radians.  
+  - `state[3]`: angle of the right leg joint in radians.  
+  - `state[4]`: angle of the right foot joint in radians. 
+  - `state[5]`: angle of the left thigh joint in radians.  
+  - `state[6]`: angle of the left leg joint in radians.  
+  - `state[7]`: angle of the left foot joint in radians. 
+  
+### Action Space
+The action space consists of a 1-dimensional NumPy array of shape `(6,)`, controlling the torques applied to each of the walker's actuated joints.
+
+**Range**: All actions are bounded between [-1, 1]
+
+**Control mapping**:
+- `action[0]`: Torque applied on the right thigh rotor.  
+- `action[1]`: Torque applied on the right leg rotor.  
+- `action[2]`: Torque applied on the right foot rotor.
+- `action[3]`: Torque applied on the left thigh rotor.  
+- `action[4]`: Torque applied on the left leg rotor.  
+- `action[5]`: Torque applied on the left foot rotor. 
