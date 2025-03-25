@@ -5,7 +5,7 @@ This repository contains the official implementation for our paper [Leveraging L
 ## Installation
 
 ### Prerequisites
-- MuJoCo>=2.1.0 (see instructions below)
+- MuJoCo version ≥ 2.1.0 and < 2.2.0 (see installation instructions below)
 - OpenAI API access
 
 ### Setup
