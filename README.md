@@ -5,7 +5,7 @@ This repository contains the official implementation for our paper [Leveraging L
 ## Installation
 
 ### Prerequisites
-- MuJoCo (see instructions below)
+- MuJoCo>=2.1.0 (see instructions below)
 - OpenAI API access
 
 ### Setup
@@ -42,13 +42,12 @@ If you haven't installed MuJoCo yet, follow these steps:
 To run experiments with our method or baselines:
 
 ```bash
-cd scripts/{env_name}/OOD/
-bash train_{algo_name}.sh
+cd path/to/repository/
+. scripts/{env_name}/OOD/train_{algo_name}.sh
 
 # Examples:
 # Train LaMOuR on Ant environment
-# cd scripts/Ant/OOD/
-# bash train_lamour.sh
+# . scripts/Ant/OOD/train_lamour.sh
 ```
 
 Available environments:
