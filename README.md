@@ -61,8 +61,8 @@ Available environments:
 Available algorithms:
 - `lamour` (our method)
 - `sero`
-- `sac-env`
-- `sac-zero`
+- `sac_env`
+- `sac_zero`
 
 ### Monitoring Training Progress
 
