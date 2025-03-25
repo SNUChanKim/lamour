@@ -51,12 +51,12 @@ cd path/to/repository/
 ```
 
 Available environments:
-- `AntOOD-v3`
-- `HalfCheetahOOD-v3`
-- `HopperOOD-v3`
-- `Walker2dOOD-v3`
-- `HumanoidOOD-v3`
-- `PushChairOOD-v1`
+- `Ant`
+- `HalfCheetah`
+- `Hopper`
+- `Walker2d`
+- `Humanoid`
+- `PushChair`
 
 Available algorithms:
 - `lamour` (our method)
