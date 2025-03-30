@@ -11,7 +11,7 @@ This repository contains the official implementation for our paper [Leveraging L
 ### Setup
 1. Clone this repository:
    ```bash
-   git clone https://github.com/username/lamour.git
+   git clone https://github.com/SNUChanKim/lamour.git
    cd lamour
    ```
 
